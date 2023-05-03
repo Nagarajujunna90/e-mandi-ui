@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllProductComponent } from './all-product/all-product.component';
 import { CreateProductComponent } from './create-product/create-product.component';
-import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { HomeComponent } from './home/home.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 
