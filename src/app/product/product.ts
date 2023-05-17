@@ -3,5 +3,5 @@ export interface Product {
     name:string,
     description:string,
     company:string,
-    price:number
+    price:number,profile:any
 }

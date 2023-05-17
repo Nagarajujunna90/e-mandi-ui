@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 
 export class CreateProductComponent implements OnInit {
-  
+
   productForm: FormGroup;
 
   ngOnInit() {
@@ -31,9 +31,10 @@ export class CreateProductComponent implements OnInit {
 
   submitForm() {
     this.productService.create(this.productForm.value).subscribe((res: any) => {
-      console.log('Product created!',res)
+      console.log('Product created!', res)
       this.router.navigateByUrl('/get-products')
- }); }
-
+    });
+  }
+ 
 }
 

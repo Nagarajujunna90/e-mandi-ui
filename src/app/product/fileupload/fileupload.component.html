@@ -1,0 +1,24 @@
+<table>
+    <tr *ngFor="let images of imageArray">
+        <td><a href="http://localhost:8084/product/v1/product/downloadImage/{{images.id}}" (click)="downloadImage(images.id)" target="_target" download>{{images.fileName}}</a></td>
+        <!-- <img height="200" width="200"  src={{images.data}} /> -->
+        <!-- <img src= 'data:image/jpg;base64,'{{images.data}} > -->
+        <img height="200" width="200" src="{{'data:image/jpg;base64,' + images.data}}" />
+
+    </tr>
+    <tr>
+        <td> 
+            <span>Select Image</span>
+        </td>
+        <td>
+            <img src={{url}} class="preview">
+            <input  type="file" (change)="onFileChanged($event)" #fileInput>
+            <button (click)="onUpload()">Upload!</button>
+        </td>
+    </tr>
+</table>
+<style>
+   .preview {
+      max-width: 200px;
+    }
+</style>

@@ -7,13 +7,19 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AllProductComponent } from './all-product/all-product.component';
+import { ProfileeditorComponent } from './profileeditor/profileeditor.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
+import { DownloadImageComponent } from './download-image/download-image.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     CreateProductComponent,
     UpdateProductComponent,
-    AllProductComponent
+    AllProductComponent,
+    ProfileeditorComponent,
+    FileuploadComponent,
+    DownloadImageComponent
   ],
   imports: [
     CommonModule,
