@@ -19,7 +19,16 @@
                 <td> <label>Company</label> </td>
                 <td><input type="text" formControlName="company" class="form-control"> </td>
             </tr>
-           
+            <tr>
+                <td>
+                    <span>Select Image</span>
+                </td>
+                <td>
+                    <img src={{url}} class="preview">
+                    <input type="file" (change)="onFileChanged($event)" #fileInput>
+                    <button type="button" (click)="onUpload()">Upload!</button>
+                </td>
+            </tr>
             <button type="submit">Submit</button>
         </table>
     </form>

@@ -1,11 +1,16 @@
-<table>
+<div class="row" *ngFor="let images of imageArray">
+    <div class="column">
+        <a href="http://localhost:8084/product/v1/product/downloadImage/{{images.id}}" (click)="downloadImage(images.id)" target="_target" download>{{images.fileName}}</a>
+        <img height="200" width="200" src="{{'data:image/jpg;base64,' + images.data}}" />
+    </div>
+  </div>
+<!-- <table>
     <tr *ngFor="let images of imageArray">
         <td><a href="http://localhost:8084/product/v1/product/downloadImage/{{images.id}}" (click)="downloadImage(images.id)" target="_target" download>{{images.fileName}}</a></td>
-        <!-- <img height="200" width="200"  src={{images.data}} /> -->
-        <!-- <img src= 'data:image/jpg;base64,'{{images.data}} > -->
         <img height="200" width="200" src="{{'data:image/jpg;base64,' + images.data}}" />
-
     </tr>
+    </table> -->
+    <table>
     <tr>
         <td> 
             <span>Select Image</span>
@@ -21,4 +26,23 @@
    .preview {
       max-width: 200px;
     }
+    .column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}.row {
+  display: flex;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
 </style>

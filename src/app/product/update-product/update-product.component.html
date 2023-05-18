@@ -18,6 +18,22 @@
             <td> <label>Company</label> </td>
             <td><input type="text" formControlName="company" class="form-control"> </td>
         </tr>
+        <tr>
+        <td> 
+            <td>
+                <img src={{url}} class="preview">
+                <input  type="file" (change)="onFileChanged($event)"  #fileInput>
+                <button  type="button" (click)="onUpload()">Upload!</button>
+            </td>
+       
+        <td><img height="200" width="200" src="{{'data:image/jpg;base64,' + imageData}}" /></td>
+    </tr>
+        <!-- <td>
+
+            <img src={{url}} class="preview">
+            <input  type="file" (change)="onFileChanged($event)"  #fileInput>
+            <button  type="button" (click)="onUpload()">Upload!</button>
+        </td> -->
         <button type="submit">Submit</button>
     </table>
   </form>

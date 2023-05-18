@@ -10,31 +10,6 @@ import { Image } from './image';
   providedIn: 'root'
 })
 export class ProductService {
-  httpO = {
-    headers: new HttpHeaders({
-      responseType: 'application/octet-stream'
-    }),
-  };
-
-  downloadImage(imageId: number) {
-     this.httpClient.get(this.apiServer + '/product/downloadImage/'+imageId, this.httpO);
-  }
-
-
-  getImages() {
-    return this.httpClient.get<Image[]>(this.apiServer + '/product/images')
-      .pipe(
-        catchError(this.errorHandler)
-      )
-  }
-  updateImageWithProduct(productId: number, ImageId: number): Observable<Product> {
-    return this.httpClient.put<Product>(this.apiServer + '/product/updateImage/' + productId + "/" + ImageId, this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler)
-      )
-  }
-
-
   private apiServer = "http://localhost:8084/product/v1";
   httpOptions = {
     headers: new HttpHeaders({
@@ -43,44 +18,35 @@ export class ProductService {
     })
   }
   constructor(private httpClient: HttpClient) { }
-
-  create(product: Product): Observable<Product> {
+  createProduct(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(this.apiServer + '/product/', JSON.stringify(product), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
   }
-  uploadImage(selectedFile: File): Observable<Image> {
-    const uploadData = new FormData();
-    uploadData.append('file', selectedFile);
-    console.log(selectedFile)
 
-    return this.httpClient.post<Image>(this.apiServer + '/product/image', uploadData).pipe(
-      catchError(this.errorHandler)
-    );
-  }
-  getById(id: string): Observable<Product> {
+  getProductById(id: string): Observable<Product> {
     return this.httpClient.get<Product>(this.apiServer + '/product/' + id)
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
-  getAll(): Observable<Product[]> {
+  getAllProducts(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.apiServer + '/products/')
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
-  update(id: string, product: Product): Observable<Product> {
+  updateProductById(id: string, product: Product): Observable<Product> {
     return this.httpClient.put<Product>(this.apiServer + '/product/' + id, JSON.stringify(product), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
-  delete(id: number): Observable<any> {
+  deleteProductById(id: number): Observable<any> {
     const requestOptions: Object = {
       responseType: 'text'
     }
