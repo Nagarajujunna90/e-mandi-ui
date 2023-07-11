@@ -4,7 +4,8 @@ import { Product } from '../product';
 import { ProductService } from '../product.service';
 import { Image } from '../image';
 import { ImageService } from '../image.service';
-
+import { CartService } from '../cart.service';
+import { Cart } from '../cart';
 @Component({
   selector: 'app-all-product',
   templateUrl: './all-product.component.html',
@@ -13,33 +14,37 @@ import { ImageService } from '../image.service';
 export class AllProductComponent implements OnInit {
   products: Product[] = [];
   currentUrl: any;
-  constructor(public productService: ProductService,private imageService:ImageService,public router:Router) { this.router.routeReuseStrategy.shouldReuseRoute = () => {
-    return false;
-  };}
+  constructor(public productService: ProductService, private imageService: ImageService, public cartService: CartService, public router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+  }
 
 
   ngOnInit() {
     this.fetchData()
   }
-  imageData:Blob[]=[]
+  imageData: Blob[] = []
 
-  resImage:Image
-  fetchData(){
+  resImage: Image
+  fetchData() {
     this.productService.getAllProducts().subscribe((data: Product[]) => {
       this.products = data;
-     
-      });
+
+    });
   }
-  delete(id:number){
-    this.productService.deleteProductById(id).subscribe(()=>{
+  delete(id: number) {
+    this.productService.deleteProductById(id).subscribe(() => {
       this.ngOnInit();
     })
   }
   id: any;
+  userId:number=1
   url: string | ArrayBuffer | null;
   imageArray: Image[];
   file: File;
-  image: Image
+  image: Image;
+  cart = new Cart();
   onFileChanged(event: any) {
     let reader = new FileReader();
     this.file = event.target.files[0]
@@ -61,5 +66,22 @@ export class AllProductComponent implements OnInit {
         this.router.navigateByUrl('/get-products')
 
       });
+  }
+
+  addToCart(id: number) {
+    console.log(id);
+    this.cart.productId = id.toString();
+    this.cart.customerId = 1;
+    this.cartService.addCart(this.cart).subscribe((data) => {
+      console.log("Product added successfully to your cart.")
+    });
+
+  }
+
+  getMyCart() {
+    this.cartService.getAllCartByUserId(this.userId).subscribe((data) => {
+      console.log(data)
+      this.router.navigateByUrl('get-carts')
+    })
   }
 }

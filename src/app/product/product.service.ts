@@ -10,6 +10,7 @@ import { Image } from './image';
   providedIn: 'root'
 })
 export class ProductService {
+ 
   private apiServer = "http://localhost:8084/product/v1";
   httpOptions = {
     headers: new HttpHeaders({
@@ -19,7 +20,7 @@ export class ProductService {
   }
   constructor(private httpClient: HttpClient) { }
   createProduct(product: Product): Observable<Product> {
-    return this.httpClient.post<Product>(this.apiServer + '/product/', JSON.stringify(product), this.httpOptions)
+    return this.httpClient.post<Product>(this.apiServer + '/product', JSON.stringify(product), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
@@ -31,9 +32,8 @@ export class ProductService {
         catchError(this.errorHandler)
       )
   }
-
   getAllProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.apiServer + '/products/')
+    return this.httpClient.get<Product[]>(this.apiServer + '/products')
       .pipe(
         catchError(this.errorHandler)
       )

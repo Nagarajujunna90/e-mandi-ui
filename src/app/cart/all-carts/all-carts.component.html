@@ -1,0 +1,35 @@
+<div>
+    <div>
+    <li class="main-nav__item" routerLinkActive="active">
+        <a class="main-nav__link" routerLink="/">Home</a>
+    </li>
+</div>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Company</th>
+            <th>Product Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of order">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.company}}</td>
+            <td><img height="200" width="200" src="{{'data:image/jpg;base64,' + product.image}}" /></td>
+            <td>
+                <button type="button" [routerLink]="['/update-product/', product.id]">Checkout</button>
+                <button type="button" (click)="removeFromCart(product.id)">Remove</button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

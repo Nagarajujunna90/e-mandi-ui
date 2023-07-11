@@ -10,6 +10,7 @@ import { AllProductComponent } from './all-product/all-product.component';
 import { ProfileeditorComponent } from './profileeditor/profileeditor.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { DownloadImageComponent } from './download-image/download-image.component';
+import { CartModule } from '../cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,6 @@ import { DownloadImageComponent } from './download-image/download-image.componen
     CommonModule,
     ProductRoutingModule, 
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule  ]
 })
 export class ProductModule { }
