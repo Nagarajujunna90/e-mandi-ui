@@ -6,6 +6,7 @@ import { AddCartComponent } from './add-cart/add-cart.component';
 import { DeleteCartComponent } from './delete-cart/delete-cart.component';
 import { AllCartsComponent } from './all-carts/all-carts.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CartRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ]
 })
 export class CartModule {
