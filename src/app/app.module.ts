@@ -7,7 +7,8 @@ import { ProductModule } from './product/product.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CartModule } from './cart/cart.module';
-;
+import { AppMaterialModule } from './app.material-module';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CartModule } from './cart/cart.module';
     FormsModule,
     CartModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
