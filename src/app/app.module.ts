@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CartModule } from './cart/cart.module';
 import { AppMaterialModule } from './app.material-module';
+import { UserModule } from './user/user.module';
+import { ImageModule } from './file/image.module';
 
 
 @NgModule({
@@ -17,12 +19,14 @@ import { AppMaterialModule } from './app.material-module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ProductModule,
     FormsModule,
-    CartModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppMaterialModule
+    AppMaterialModule,
+    ProductModule,
+    CartModule,
+    UserModule,
+    ImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

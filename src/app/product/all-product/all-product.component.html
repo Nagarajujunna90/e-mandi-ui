@@ -1,7 +1,13 @@
 <div>
-    <h1>My Products</h1> <div ><img src="/assets/shopping-cart.png" alt="image"  align="right"  width="30" height="20" (click)="getMyCart()"></div>
-  <div> <button type="button" [routerLink]="['/add-product']">Create new product</button></div> 
-    <table border="1" >
+    <h1>Products</h1>
+    <div><img src="/assets/logout.png" alt="image" align="right" width="30" height="20"
+            [routerLink]="['/registration']"></div>
+
+    <div><img src="/assets/shopping-cart.png" alt="image" align="right" width="30" height="20" (click)="getMyCart()">
+    </div>
+
+    <div> <button type="button" [routerLink]="['/add-product']">Create new product</button></div>
+    <table border="1">
         <thead>
             <tr>
                 <th>Id</th>
@@ -25,7 +31,7 @@
                     <button type="button" [routerLink]="['/update-product/', product.id]">Update</button>
                     <button type="button" (click)="delete(product.id)">Remove</button>
                     <button type="button" [routerLink]="['/upload-image/', product.id]">Upload Image</button>
-                    <button type="button" (click)="addToCart(product.id)">Add to Cart</button>          
+                    <button type="button" (click)="addToCart(product.id)">Add to Cart</button>
                 </td>
             </tr>
         </tbody>

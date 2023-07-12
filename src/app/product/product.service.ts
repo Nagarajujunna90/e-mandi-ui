@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { Product } from './product';
-import { Image } from './image';
+import { Image } from '../file/image';
 
 
 @Injectable({

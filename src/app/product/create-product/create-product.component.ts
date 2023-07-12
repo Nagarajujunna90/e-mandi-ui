@@ -3,8 +3,8 @@ import { ProductService } from '../product.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../product';
 import { Router } from '@angular/router';
-import { Image } from '../image';
-import { ImageService } from '../image.service';
+import { Image } from '../../file/image';
+import { ImageService } from '../../file/image.service';
 
 
 @Component({

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllProductComponent } from './all-product/all-product.component';
 import { CreateProductComponent } from './create-product/create-product.component';
-import { FileuploadComponent } from './fileupload/fileupload.component';
-import { ProfileeditorComponent } from './profileeditor/profileeditor.component';
+import { FileuploadComponent } from '../file/fileupload/fileupload.component';
+import { ProfileeditorComponent } from '../user/profileeditor/profileeditor.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 
 const routes: Routes = [
@@ -11,10 +11,8 @@ const routes: Routes = [
   { path: 'add-product', component: CreateProductComponent },
   { path: 'update-product/:productId', component: UpdateProductComponent },
   { path: 'get-product/:productId', component: AllProductComponent },
-  { path: 'profile', component: ProfileeditorComponent },
   { path: 'upload-image/:productId', component: FileuploadComponent },
-  { path: 'cart',loadChildren: () => import('../cart/cart.module').then(x => x.CartModule)
-  }
+  { path: 'cart',loadChildren: () => import('../cart/cart.module').then(x => x.CartModule)}
 ];
 
 @NgModule({

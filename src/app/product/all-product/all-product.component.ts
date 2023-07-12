@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
-import { Image } from '../image';
-import { ImageService } from '../image.service';
-import { CartService } from '../cart.service';
-import { Cart } from '../cart';
+import { Image } from '../../file/image';
+import { ImageService } from '../../file/image.service';
+import { CartService } from '../../cart.service';
+import { Cart } from '../../cart';
 @Component({
   selector: 'app-all-product',
   templateUrl: './all-product.component.html',
@@ -14,7 +14,8 @@ import { Cart } from '../cart';
 export class AllProductComponent implements OnInit {
   products: Product[] = [];
   currentUrl: any;
-  constructor(public productService: ProductService, private imageService: ImageService, public cartService: CartService, public router: Router) {
+  constructor(public productService: ProductService, private imageService: ImageService,
+     public cartService: CartService, public router: Router) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };

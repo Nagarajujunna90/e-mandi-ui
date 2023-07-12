@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Image } from '../image';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { Product } from '../../product/product';
+import { ProductService } from '../../product/product.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ImageService } from '../image.service';
 
