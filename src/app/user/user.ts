@@ -2,7 +2,7 @@ export interface User{
     id:number
     firstName:string
     lastName:string
-    phoneNumber:string
+    phoneNumber:number
     gender:number
     street:string
     address1:string

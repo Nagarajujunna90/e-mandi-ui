@@ -1,0 +1,13 @@
+
+.img-container img {
+    float: left;
+    width: 23.33%;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}

@@ -1,10 +1,11 @@
 <div><b>Login Page</b></div>
 <div>
-    <form [formGroup]="loginForm" (ngSubmit)="loginUser()" novalidate>
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
         <label>User name</label>
-        <input type="text" formControlName="userName"><br>
+        <input type="text" formControlName="userName" class="form-control" required>
+       <br>
         <label>Password</label>
-        <input type="password" formControlName="password"><br>
-        <input type="submit">
+        <input type="password" formControlName="password" required><br>
+        <button type="submit" class="btn btn-success">Submit</button>  
     </form>
 </div>

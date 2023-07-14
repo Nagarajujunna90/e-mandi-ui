@@ -10,6 +10,7 @@ import { CartModule } from './cart/cart.module';
 import { AppMaterialModule } from './app.material-module';
 import { UserModule } from './user/user.module';
 import { ImageModule } from './file/image.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { ImageModule } from './file/image.module';
     ProductModule,
     CartModule,
     UserModule,
-    ImageModule
+    ImageModule,BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

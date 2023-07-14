@@ -1,13 +1,23 @@
+
 <div>
     <h1>Products</h1>
+    <!-- <div class="row">
+        <div *ngFor="let product of products" class="col-md-3 img-container" >
+            <div> {{product.name}} |  {{product.price}}
+            <img  height="250px" width="350px"  alt="Image not found" src="{{'data:image/jpg;base64,' + product.image}}" />
+        </div>
+        </div>
+    </div> -->
     <div><img src="/assets/logout.png" alt="image" align="right" width="30" height="20"
             [routerLink]="['/registration']"></div>
 
-    <div><img src="/assets/shopping-cart.png" alt="image" align="right" width="30" height="20" (click)="getMyCart()">
+    <div><img src="/assets/shopping-cart.png"  alt="image" align="right" width="30" height="20" (click)="getMyCart()">
     </div>
 
     <div> <button type="button" [routerLink]="['/add-product']">Create new product</button></div>
+    
     <table border="1">
+        
         <thead>
             <tr>
                 <th>Id</th>
