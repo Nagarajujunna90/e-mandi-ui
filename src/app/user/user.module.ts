@@ -8,10 +8,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileeditorComponent } from './profileeditor/profileeditor.component';
 import { MatTableModule } from '@angular/material/table';
 import { AppMaterialModule } from '../app.material-module';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { AllUsersComponent } from './all-users/all-users.component';
 
 
 @NgModule({
-  declarations: [RegistrationComponent, LoginComponent,ProfileeditorComponent],
+  declarations: [
+    RegistrationComponent,
+    LoginComponent,
+    ProfileeditorComponent,
+    UpdateUserComponent,
+    AllUsersComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
