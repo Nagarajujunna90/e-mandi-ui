@@ -14,31 +14,8 @@ import { Cart } from '../../cart';
 export class AllProductComponent implements OnInit {
   products: Product[] = [];
   currentUrl: any;
-  constructor(public productService: ProductService, private imageService: ImageService,
-     public cartService: CartService, public router: Router) {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => {
-      return false;
-    };
-  }
-
-
-  ngOnInit() {
-    this.fetchData()
-  }
   imageData: Blob[] = []
-
   resImage: Image
-  fetchData() {
-    this.productService.getAllProducts().subscribe((data: Product[]) => {
-      this.products = data;
-
-    });
-  }
-  delete(id: number) {
-    this.productService.deleteProductById(id).subscribe(() => {
-      this.ngOnInit();
-    })
-  }
   id: any;
   userId:number=1
   url: string | ArrayBuffer | null;
@@ -46,6 +23,30 @@ export class AllProductComponent implements OnInit {
   file: File;
   image: Image;
   cart = new Cart();
+
+  constructor(public productService: ProductService, private imageService: ImageService,
+     public cartService: CartService, public router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+  }
+
+  ngOnInit() {
+    this.getAllProducts()
+  }
+
+  getAllProducts() {
+    this.productService.getAllProducts().subscribe((data: Product[]) => {
+      this.products = data;
+    });
+  }
+
+  deleteProductById(id: number) {
+    this.productService.deleteProductById(id).subscribe(() => {
+      this.ngOnInit();
+    })
+  }
+ 
   onFileChanged(event: any) {
     let reader = new FileReader();
     this.file = event.target.files[0]
@@ -56,6 +57,7 @@ export class AllProductComponent implements OnInit {
     };
 
   }
+
   onUpload() {
     this.imageService.uploadImage(this.file)
       .subscribe((data) => {
@@ -76,7 +78,6 @@ export class AllProductComponent implements OnInit {
     this.cartService.addCart(this.cart).subscribe((data) => {
       console.log("Product added successfully to your cart.")
     });
-
   }
 
   getMyCart() {
@@ -85,4 +86,5 @@ export class AllProductComponent implements OnInit {
       this.router.navigateByUrl('get-carts')
     })
   }
+
 }

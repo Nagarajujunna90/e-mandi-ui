@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../user';
 import { UserService } from '../user.service';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-user',
@@ -17,12 +17,14 @@ export class UpdateUserComponent {
   id: string | null;
   constructor(private formBuilder: FormBuilder,
      private userService: UserService,
-     private route: ActivatedRoute,
+     private activateRoute: ActivatedRoute,
+     public router: Router
     ) {
     this.updateForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       mobileNumber: ['', Validators.required],
+      password:[''],
       gender: [''],
       street: [''],
       address1: [''],
@@ -31,7 +33,8 @@ export class UpdateUserComponent {
     })
   }
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('productId')
+    this.id = this.activateRoute.snapshot.paramMap.get('userId')
+    console.log(this.id)
     this.userService.getUserDetailsByUserId(Number(this.id)).subscribe(data=>{
       this.updateForm.patchValue({
         firstName:data.firstName,
@@ -47,8 +50,10 @@ export class UpdateUserComponent {
   }
 
   updateUserDetails() {
-    this.userService.updateUserDetails(this.updateForm.value, this.userId).subscribe((data: any) => {
-
+    this.userService.updateUserDetails(this.updateForm.value, Number(this.id))
+    .subscribe((data: any) => {
+      console.log(data)
+      this.router.navigateByUrl("/all-users")
     })
   }
 

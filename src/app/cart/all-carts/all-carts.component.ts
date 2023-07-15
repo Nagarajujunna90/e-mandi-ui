@@ -11,9 +11,8 @@ import { ProductService } from 'src/app/product/product.service';
   styleUrls: ['./all-carts.component.css']
 })
 export class AllCartsComponent {
-  products: any = [ ];
-   order = new Array<Product>();
-
+  products: any = [];
+  order = new Array<Product>();
   carts: Cart[]
   product: Product
   constructor(public productService: ProductService, public cartService: CartService, public router: Router) {
@@ -23,13 +22,11 @@ export class AllCartsComponent {
   }
   ngOnInit() {
     console.log("ngoninit item");
-    this.fetchData()
-    //this.getProductById();
-
+    this.getAllProductsByUserId()
   }
 
-  id:number=1
-  fetchData() {
+  id: number = 1
+  getAllProductsByUserId() {
     console.log('fetc')
     this.cartService.getAllCartByUserId(this.id).subscribe((data: Cart[]) => {
       this.carts = data;
@@ -48,7 +45,7 @@ export class AllCartsComponent {
       this.product = data
     })
   }
-  removeFromCart(id: number) {
+  deleteProductFromCart(id: number) {
     this.cartService.removeItemFromCart(id).subscribe((data) => {
       console.log("removed item");
       this.ngOnDestroy();
@@ -56,7 +53,7 @@ export class AllCartsComponent {
   }
   ngOnDestroy() {
     this.order.length = 0;
-    this.fetchData()
+    this.getAllProductsByUserId()
   }
 }
 

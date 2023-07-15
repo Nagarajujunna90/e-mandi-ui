@@ -25,8 +25,8 @@
             <td>{{product.company}}</td>
             <td><img height="200" width="200" src="{{'data:image/jpg;base64,' + product.image}}" /></td>
             <td>
-                <button type="button" [routerLink]="['/update-product/', product.id]">Checkout</button>
-                <button type="button" (click)="removeFromCart(product.id)">Remove</button>
+                <!-- <button type="button" [routerLink]="['/update-product/', product.id]">Checkout</button> -->
+                <button type="button" (click)="deleteProductFromCart(product.id)">Remove</button>
 
             </td>
         </tr>

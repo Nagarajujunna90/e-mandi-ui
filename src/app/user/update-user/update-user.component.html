@@ -1,43 +1,43 @@
-<h1>Update User details</h1>
-<form [formGroup]="updateForm" (submit)="updateUserDetails()">
-    <mat-form-field appearance="fill">
+<div class="container">
+    <h2>Edit User Details</h2>
+    <div class="container">
+<form [formGroup]="updateForm" align="center" (submit)="updateUserDetails()" class="example-form">
+   
+    <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>firstName</mat-label>
         <input matInput formControlName="firstName" />
     </mat-form-field>
     <br />
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>lastName</mat-label>
         <input matInput formControlName="lastName" />
     </mat-form-field>
     <br />
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>mobileNumber</mat-label>
         <input matInput formControlName="mobileNumber" />
     </mat-form-field>
     <br />
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>password</mat-label>
         <input matInput formControlName="password" />
     </mat-form-field>
     <br />
-    <mat-form-field appearance="fill">
-        <mat-label>firstName</mat-label>
-        <input matInput formControlName="firstName" />
-    </mat-form-field>
-    <br />
-    <mat-form-field appearance="fill">
+
+    <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>street</mat-label>
         <input matInput formControlName="street" />
     </mat-form-field>
     <br />
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>address1</mat-label>
         <input matInput formControlName="address1" />
     </mat-form-field>
     <br />
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>city</mat-label>
         <input matInput formControlName="city" />
     </mat-form-field>
     <button type="submit">Submit</button>
 </form>
+</div></div>

@@ -29,7 +29,7 @@ export class LoginComponent {
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value));
     this.userService.login(this.loginForm.value).subscribe((data)=>{
       console.log(data)
-      if(data.match("User details found"))
+      if(data.match("User LoggedIn successfully"))
       this.router.navigateByUrl('/get-products')
     })
 

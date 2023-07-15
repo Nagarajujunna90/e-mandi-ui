@@ -8,7 +8,7 @@ import { AllUsersComponent } from './all-users/all-users.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'update-user', component: UpdateUserComponent },
+  { path: 'edit-user/:userId', component: UpdateUserComponent },
   { path: 'all-users', component: AllUsersComponent },
 ];
 

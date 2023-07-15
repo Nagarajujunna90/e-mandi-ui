@@ -14,26 +14,30 @@ export class UserService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     //responseType: 'text'
   }
-
+  httpOptions2: Object = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    responseType: 'text'
+  }
 
   private userUrl = "http://localhost:8082/customer/v1";
   constructor(private httpClient: HttpClient) { }
 
   login(loginForm: Login): Observable<string> {
-    return this.httpClient.post<string>(this.userUrl + "http://localhost:8082/login", JSON.stringify(loginForm), this.httpOptions);
+    return this.httpClient.post<string>( "http://localhost:8082/login", JSON.stringify(loginForm), this.httpOptions2);
   }
 
   registerUser(userForm: User): Observable<string> {
-    return this.httpClient.post<string>(this.userUrl + "/user", JSON.stringify(userForm), this.httpOptions);
+    return this.httpClient.post<string>(this.userUrl + "/user", JSON.stringify(userForm), this.httpOptions2);
   }
 
   updateUserDetails(user: any, userId: number): Observable<string> {
-    return this.httpClient.put<string>(this.userUrl + "/user" + userId, JSON.stringify(user), this.httpOptions);
+    return this.httpClient.put<string>(this.userUrl + "/user/" + userId, JSON.stringify(user), this.httpOptions);
 
   }
 
   deleteUser(userId: number): Observable<string> {
-    return this.httpClient.delete<string>(this.userUrl + "/user/" + userId, this.httpOptions);
+    console.log(userId)
+    return this.httpClient.delete<string>(this.userUrl + "/user/" + userId, this.httpOptions2);
   }
 
   listAllUser(): Observable<User[]> {

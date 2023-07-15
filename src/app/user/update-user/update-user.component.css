@@ -1,0 +1,25 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  ::ng-deep .mat-form-field-infix {
+    padding-top: 1px !important;
+    } 
+  div {
+    text-align: center
+  }
+  form {
+    text-align: center;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }

@@ -1,11 +1,14 @@
-<form [formGroup]="userForm" (ngSubmit)="registerUser()" novalidate>
+<div class="container">
+<form [formGroup]="userForm" (ngSubmit)="registerUser()" novalidate class="example-form">
     <p>If you already registered user ,please <button type="button" [routerLink]="['/login']">Login</button> here! </p>
     <label>First Name</label>
     <input type="text" formControlName="firstName"><br>
     <label>Last Name</label>
     <input type="text" formControlName="lastName"><br>
+    <label>User Name</label>
+    <input type="text" formControlName="userName"><br>
     <label>Gender</label>
-    <input type="radio" formControlName="gender" name="gender" > Male
+    <input type="radio" formControlName="gender" name="gender"> Male
     <input type="radio" formControlName="gender" name="gender"> Female<br>
     <label>Address</label>
     <label>Street</label> <input type="text" formControlName="street"><br>
@@ -13,7 +16,5 @@
     <label>City</label><input type="text" formControlName="city"><br>
     <label>State</label><input type="text" formControlName="state"><br>
     <label>Mobile Number</label><input type="text" formControlName="mobileNumber"><br>
-    <label>Password</label>
-    <!-- <input type="password" formControlName="password"><br> -->
     <input type="submit">
-</form>
+</form></div>

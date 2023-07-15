@@ -39,7 +39,7 @@
                 <td><img height="200" width="200" src="{{'data:image/jpg;base64,' + product.image}}" /></td>
                 <td>
                     <button type="button" [routerLink]="['/update-product/', product.id]">Update</button>
-                    <button type="button" (click)="delete(product.id)">Remove</button>
+                    <button type="button" (click)="deleteProductById(product.id)">Remove</button>
                     <button type="button" [routerLink]="['/upload-image/', product.id]">Upload Image</button>
                     <button type="button" (click)="addToCart(product.id)">Add to Cart</button>
                 </td>
